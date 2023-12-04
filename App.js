@@ -1,12 +1,13 @@
 // App.js
 
 import React, { useEffect, useState } from 'react';
-import {Animated, View, Text, TextInput, TouchableOpacity, StyleSheet,KeyboardAvoidingView,Platform } from 'react-native';
+import {Animated, View, Text, SafeAreaView, TouchableOpacity, StyleSheet,KeyboardAvoidingView,Platform } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import { LoginScreen } from './screens/Login/Login';
+import  {LoginScreen}  from './screens/Login/Login';
 import { LogBox } from 'react-native';
 import { SignUpScreen } from './screens/SignUp/SignUp';
+import Main from './screens/Main/Main';
 LogBox.ignoreLogs([
   'Sending `onAnimatedValueUpdate` with no listeners registered',
   // Add other warning messages here as needed
@@ -47,14 +48,21 @@ const AppScreen = ({ navigation }) => {
   }, []); // Run effect only once on mount
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : null}
-      style={styles.container}
-    >
-      <View style={styles.inner}>
-        <TouchableOpacity onPress={()=>handleLogin()} style={{backgroundColor:'pink', paddingVertical:4, paddingHorizontal:10}}><Text>Hammad</Text></TouchableOpacity>
-      </View>
-    </KeyboardAvoidingView>
+    <View style={{ flex: 1, backgroundColor: 'white', paddingHorizontal: 8 }}>
+      {Platform.OS === 'ios' ? <View style={{ height: 20, backgroundColor: 'white' }} /> : null /* Offset for status bar */}
+      <SafeAreaView style={{ flex: 1 }}>
+        <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : null }
+          style={styles.container}
+        >
+          <View style={styles.inner}>
+            <TouchableOpacity onPress={() => handleLogin()} style={{ backgroundColor: 'pink', paddingVertical: 4, paddingHorizontal: 10 }}>
+              <Text>Hammad</Text>
+            </TouchableOpacity>
+          </View>
+        </KeyboardAvoidingView>
+      </SafeAreaView>
+    </View>
   );
 };
 
@@ -79,14 +87,15 @@ const AppNavigator = createStackNavigator(
       navigationOptions: {
         headerShown:false
       },
+    },
+    Home:{
+      screen: Main,
+      navigationOptions: {
+        headerShown:false
+      },
     }
   },
-  {
-    initialRouteName: 'App',
-    defaultNavigationOptions: {
-      gestureEnabled: false, // Enable swipe gestures for other screens
-    },
-  }
+  
 
 );
 

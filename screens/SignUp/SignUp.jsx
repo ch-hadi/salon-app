@@ -10,7 +10,7 @@ export const SignUpScreen = ({ navigation }) => {
     // For example, you can create a new user account and navigate to the login screen
     // (Note: This is a basic example and doesn't include proper authentication)
     alert('Sign up successful! Please log in.');
-    navigation.navigate('Login');
+    navigation.navigate('Home');
   };
 
   return (

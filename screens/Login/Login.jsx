@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet,KeyboardAvoidingView,Platform } from 'react-native';
+ 
 export const LoginScreen = ({ navigation }) => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -7,11 +8,12 @@ export const LoginScreen = ({ navigation }) => {
   const handleLogin = () => {
     // Add your login logic here
     // For example, you can check credentials and navigate to the main screen
-    if (username === 'example' && password === 'password') {
-      navigation.navigate('Main');
-    } else {
-      alert('Invalid credentials. Please try again.');
-    }
+    navigation.navigate('Signup')
+    // if (username === 'example' && password === 'password') {
+    //   navigation.navigate('SignUp');
+    // } else {
+    //   alert('Invalid credentials. Please try again.');
+    // }
   };
 
   return (
@@ -44,6 +46,8 @@ export const LoginScreen = ({ navigation }) => {
     </KeyboardAvoidingView>
   );
 };
+// export default LoginScreen;
+
 const styles = StyleSheet.create({
     container: {
       flex: 1,
