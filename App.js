@@ -1,7 +1,7 @@
 // App.js
 
 import React, { useEffect, useState } from 'react';
-import {Animated, View, Text, SafeAreaView, TouchableOpacity, StyleSheet,KeyboardAvoidingView,Platform } from 'react-native';
+import {Animated, View, Text, SafeAreaView, TouchableOpacity, StyleSheet,KeyboardAvoidingView,Platform,StatusBar } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import  {LoginScreen}  from './screens/Login/Login';
@@ -55,11 +55,6 @@ const AppScreen = ({ navigation }) => {
           behavior={Platform.OS === 'ios' ? 'padding' : null }
           style={styles.container}
         >
-          <View style={styles.inner}>
-            <TouchableOpacity onPress={() => handleLogin()} style={{ backgroundColor: 'pink', paddingVertical: 4, paddingHorizontal: 10 }}>
-              <Text>Hammad</Text>
-            </TouchableOpacity>
-          </View>
         </KeyboardAvoidingView>
       </SafeAreaView>
     </View>
@@ -69,13 +64,6 @@ const AppScreen = ({ navigation }) => {
 const AppNavigator = createStackNavigator(
   {
     // Main: MainScreen,
-    App:{
-      screen: AppScreen,
-      navigationOptions: {
-        headerShown:false,
-        gestureEnabled: false,
-      },
-    },
     Login:{
       screen: LoginScreen,
       navigationOptions: {
