@@ -36,32 +36,58 @@ const Home = () => {
               </View>
             </ImageBackground>
           </View>
-       <View style={styles.content_view}>
-            <View style={styles.directionsDetail}>
+           <View style={{display:'flex',flex:0.53,flexDirection:'column',width:'100%'}}>
+           <View style={styles.content_view}>
+               <View style={styles.directionsDetail}>
               <View style={styles.icon_text}>
-                <Ionicons name='call-outline' size='30px' color={'white'} />
+                <Ionicons name='call-outline' size='25px' color={'#000'} />
                 <Text style={styles.inner_text}>Call</Text> 
               </View>
               <View style={styles.icon_text}>
-                 <Ionicons name='location-outline' size='30px' color={'white'} />
+                 <Ionicons name='location-outline' size='25px' color={'#000'} />
               <Text style={styles.inner_text}>Directions</Text>
               </View>
               <View style={styles.icon_text}>
-                <Ionicons name='share-outline' size='30px' color={'white'} />
+                <Ionicons name='share-outline' size='25px' color={'#000'} />
                 <Text style={styles.inner_text}> Share</Text>
               </View>
             </View>
             <View style={styles.reviews}>
               <View style={{
-                alignItems: 'center', borderColor: 'white',
+                alignItems: 'center', borderColor: 'blue',
                 borderBottomWidth: 1, borderTopWidth: 1,
                 borderLeftWidth: 1, borderRightWidth: 1, borderRadius: 10,
-              display:'flex',flexDirection:'row'
+                display: 'flex', flexDirection: 'row',
+                width: 70,
+                height: 35,
+                justifyContent: 'space-evenly',
+               
               }}>
-                <Ionicons name='star-outline' size='20px' color={'white'} />
-                <Text style={styles.TextStyle}>4.1</Text>
+                <Ionicons name='star-outline' size='15px' color={'blue'} />
+                <Text style={{color:'blue',fontWeight:"bold"}}>4.1</Text>
               </View>
-              <Text>5k + ratings</Text>
+              <Text style={{ marginTop: 5, color: 'blue' }}>5k + ratings</Text>
+            </View>
+            </View>
+            <View style={styles.offers}>
+              <View style={styles.offer_1}>
+                <View>
+                  <View style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
+                     <Ionicons name='flower-outline' size='15px' color={'blue'} />
+                  <Text style={{ fontWeight: 'bold' }}> 50% Off</Text>
+                 </View>
+                <Text>Use Code FREE50</Text>
+                </View>
+              </View>
+              <View style={styles.offer_2}>
+                 <View>
+                  <View style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
+                     <Ionicons name='flower-outline' size='15px' color={'blue'} />
+                  <Text style={{ fontWeight: 'bold' }}> 60% Off Debit Card</Text>
+                 </View>
+                <Text style={{ paddingTop:5 }}>No Coupon Required</Text>
+                </View>
+              </View>
             </View>
        </View>
       </View>
@@ -78,18 +104,21 @@ export default Home
 
 const styles = StyleSheet.create({
     main:{
-        flex:1,
+        display:'flex',
         justifyContent:'center',
-        alignItems:'center',
+        alignItems: 'center',
+        width: '100%',
+        height:'100%'
     },
     box1:{
-      flex:1.5,
+      flex:1.8,
       width:'100%',
-      justifyContent:'center',
-      alignItems:'center'
+      // justifyContent:'center',
+      // alignItems: 'center',
+      // backgroundColor:'green'
     },
     box2:{
-      flex:1,
+      flex:0.9,
       backgroundColor:'yellow',
       width:'100%',
       justifyContent:'center',
@@ -98,21 +127,20 @@ const styles = StyleSheet.create({
     bg_img:{
       flex:1,
       width: '100%',
-      
     },
     content_view:{
-      flex:0.3,
       width: '100%',
       display: 'flex',
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-      backgroundColor:'#000'
+      backgroundColor: '#fff',
+      paddingVertical:15
   },
   imageStyle: {
     width: '100%',
-    resizeMode: 'stretch',
-    height: 330,
+    resizeMode: 'cover',
+    height: 300,
     
   },
   bg_image_content:{
@@ -155,14 +183,54 @@ const styles = StyleSheet.create({
   reviews: {
     width: '30%',
     // backgroundColor:'yellow'
+    alignItems: 'center',
   },
   icon_text: {
     fontSize: 12,
     fontWeight: "bold",
-    alignItems:'center',marginRight:'10 %'
+    alignItems: 'center',
+    marginRight: '10 %',
+    
   },
   inner_text: {
     paddingVertical: 5,
-    color:'#fff'
+    color:'#000'
+  },
+  offers: {
+    width: '100%',
+    paddingHorizontal: 15,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingVertical:10
+    
+  },
+  offer_1: {
+    width: '35%',
+    alignItems: 'center',
+    borderColor: 'blue',
+    borderBottomWidth: 1,
+    borderTopWidth: 1,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderRadius: 10,
+    display: 'flex',
+    flexDirection: 'row',
+    height: 58,
+    justifyContent:'center'
+  },
+  offer_2: {
+    width: '60%',
+    alignItems: 'center',
+    borderColor: 'blue',
+    borderBottomWidth: 1,
+    borderTopWidth: 1,
+    borderLeftWidth: 1,
+    borderRightWidth: 1,
+    borderRadius: 10,
+    display: 'flex',
+    flexDirection: 'row',
+    height: 58,
+    justifyContent:'center'
   }
 })
