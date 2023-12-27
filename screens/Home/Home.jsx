@@ -2,6 +2,7 @@ import { StyleSheet, Text, View,SafeAreaView,StatusBar,ImageBackground } from 'r
 import React from 'react'
 import image from './../../assets/images/girl-cutting.jpg';
 import { Ionicons } from '@expo/vector-icons';
+import CSectionList from '../../components/CSectionList/CSectionList';
 const Home = () => {
   return (
     <SafeAreaView style={{ flex: 1,}}>
@@ -81,7 +82,7 @@ const Home = () => {
               </View>
               <View style={styles.offer_2}>
                  <View>
-                  <View style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'center'}}>
+                  <View style={{display:'flex',flexDirection:'row',alignItems:'center',justifyContent:'center',}}>
                      <Ionicons name='flower-outline' size='15px' color={'blue'} />
                   <Text style={{ fontWeight: 'bold' }}> 60% Off Debit Card</Text>
                  </View>
@@ -92,6 +93,9 @@ const Home = () => {
        </View>
       </View>
       <View style={styles.box2}>
+        <View style={{height:50,width:'100%',justifyContent:'center'}}>
+        <CSectionList/>
+        </View>
         <Text>Ammar</Text>
       </View>
     </View>
@@ -121,7 +125,7 @@ const styles = StyleSheet.create({
       flex:0.9,
       backgroundColor:'yellow',
       width:'100%',
-      justifyContent:'center',
+      // justifyContent:'center',
       alignItems:'center',
     
     },
@@ -190,7 +194,7 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: "bold",
     alignItems: 'center',
-    marginRight: '10 %',
+    marginRight: '10%',
     
   },
   inner_text: {
@@ -232,6 +236,7 @@ const styles = StyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     height: 58,
-    justifyContent:'center'
+    justifyContent:'center',
+   
   }
 })
