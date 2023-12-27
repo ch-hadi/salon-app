@@ -12,55 +12,6 @@ LogBox.ignoreLogs([
   'Sending `onAnimatedValueUpdate` with no listeners registered',
   // Add other warning messages here as needed
 ]);
-const AppScreen = ({ navigation }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const isLoggedIn = false; // Change this based on your authentication state
-
-  useEffect(() => {
-    // Check if the user is not logged in and navigate to the Login screen
-    if (!isLoggedIn) {
-      navigation.navigate('Login');
-    }
-  }, [isLoggedIn, navigation]);
-  const handleLogin = () => {
-    navigation.navigate('Signup')
-    // Add your login logic here
-    // For example, you can check credentials and navigate to the main screen
-    // if (username === 'example' && password === 'password') {
-    //   navigation.navigate('Main');
-    // } else {
-    //   alert('Invalid credentials. Please try again.');
-    // }
-  };
-  const animatedValue = new Animated.Value(0);
-
-  useEffect(() => {
-    const listener = animatedValue.addListener(({ value }) => {
-      // Handle value changes
-      console.log('Animated value:', value);
-    });
-
-    // Clean up the listener when the component unmounts
-    return () => {
-      animatedValue.removeListener(listener);
-    };
-  }, []); // Run effect only once on mount
-
-  return (
-    <View style={{ flex: 1, backgroundColor: 'white', paddingHorizontal: 8 }}>
-      {Platform.OS === 'ios' ? <View style={{ height: 20, backgroundColor: 'white' }} /> : null /* Offset for status bar */}
-      <SafeAreaView style={{ flex: 1 }}>
-        <KeyboardAvoidingView
-          behavior={Platform.OS === 'ios' ? 'padding' : null }
-          style={styles.container}
-        >
-        </KeyboardAvoidingView>
-      </SafeAreaView>
-    </View>
-  );
-};
-
 const AppNavigator = createStackNavigator(
   {
     // Main: MainScreen,
