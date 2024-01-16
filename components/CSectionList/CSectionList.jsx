@@ -2,39 +2,35 @@ import React from 'react';
 import { View, Text, FlatList, SectionList, TouchableOpacity } from 'react-native';
 
 // ... your data
-let data = [
-    {name:'Recommended',id:1,data:[]},
-    {name:'Packages',id:2,data:[]},
-    {name:'Face Care',id:3,data:[]},
-    {name:'Hair Cutting',id:4,data:[]},
-    {name:'Nail Cutting',id:5,data:[]},
-]
 
-const CSectionList = () => {
+
+const CSectionList = (props) => {
+  console.log('->',props.activeId)
   return (
     <View>
       <FlatList
         horizontal
-        data={data}
+        data={props.data}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
-            <TouchableOpacity>
-          <View style={{ margin: 10,
+            <TouchableOpacity onPress={()=>props.setActiveId(item)}>
+          <View style={{ margin: 5,
+          backgroundColor:item.id == props.activeId.id?'#F2EFFF':'white',
           alignItems: 'center',
-          borderColor: 'blue',
-          borderBottomWidth: 1,
-          borderTopWidth: 1,
-          borderLeftWidth: 1,
-          borderRightWidth: 1,
-          borderRadius: 5,
+          borderColor: item.id == props.activeId.id?'transparent':'blue',
+          borderBottomWidth: item.id == props.activeId.id?1: 1,
+          borderTopWidth: item.id == props.activeId.id?1: 1,
+          borderLeftWidth: item.id == props.activeId.id?1: 1,
+          borderRightWidth: item.id == props.activeId.id?1: 1,
+          borderRadius: 8,
           display: 'flex',
           flexDirection: 'row',
           paddingHorizontal:15,
-          paddingVertical:5
-        //   justifyContent:'center' 
-          }}>
+          paddingVertical:5, 
+          }}
+          >
             {/* <Image source={{ uri: item.image }} style={{ width: 100, height: 100 }} /> */}
-            <Text>{item.name}</Text>
+            <Text style={{color:item.id == props.activeId.id? '#6440FE':'#6440FE',fontWeight:'bold'}}>{item.name}</Text>
           </View>
           </TouchableOpacity>
         )}

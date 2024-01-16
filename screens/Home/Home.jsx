@@ -1,9 +1,12 @@
 import { StyleSheet, Text, View,SafeAreaView,StatusBar,ImageBackground } from 'react-native'
-import React from 'react'
+import React, { useState } from 'react'
 import image from './../../assets/images/girl-cutting.jpg';
 import { Ionicons } from '@expo/vector-icons';
 import CSectionList from '../../components/CSectionList/CSectionList';
 const Home = () => {
+
+  const [active, setActive] = useState('1');
+
   return (
     <SafeAreaView style={{ flex: 1,}}>
     {/* <StatusBar barStyle="dark-content" />  */}
@@ -94,9 +97,12 @@ const Home = () => {
       </View>
       <View style={styles.box2}>
         <View style={{height:50,width:'100%',justifyContent:'center'}}>
-        <CSectionList/>
+        <CSectionList data={data} activeId={active} setActiveId={setActive} color='#F2EFFF' bgColor='#6440FE'/>
         </View>
-        <Text>Ammar</Text>
+        <Text style={{fontSize:20,fontWeight:'bold'}}>{active.name} (5)</Text>
+        <View>
+          
+        </View>
       </View>
     </View>
   </SafeAreaView>
@@ -112,7 +118,7 @@ const styles = StyleSheet.create({
         justifyContent:'center',
         alignItems: 'center',
         width: '100%',
-        height:'100%'
+        height:'100%',
     },
     box1:{
       flex:1.8,
@@ -125,8 +131,9 @@ const styles = StyleSheet.create({
       flex:0.9,
       backgroundColor:'yellow',
       width:'100%',
+      paddingHorizontal:15
       // justifyContent:'center',
-      alignItems:'center',
+      // alignItems:'center',
     
     },
     bg_img:{
@@ -240,3 +247,10 @@ const styles = StyleSheet.create({
    
   }
 })
+let data = [
+  {name:'Recommended',id:1,data:[]},
+  {name:'Packages',id:2,data:[]},
+  {name:'Face Care',id:3,data:[]},
+  {name:'Hair Cutting',id:4,data:[]},
+  {name:'Nail Cutting',id:5,data:[]},
+]
