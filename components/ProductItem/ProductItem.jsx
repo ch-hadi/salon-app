@@ -17,11 +17,11 @@ const ProductItem = ({ item }) => {
           <Text style={styles.title}>{item.title}</Text>
           <View style={styles.priceDistanceContainer}>
             <Text style={styles.price}>${item.price}</Text>
-            <Text style={styles.distance}>{item.distance}</Text>
+            <Text style={styles.distance}>20km</Text>
           </View>
         </View>
         <View style={styles.quantityContainer}>
-          <Text>Quantity: {quantity}</Text>
+          <Text>Quantity: 1</Text>
           {/* Add buttons or controls to adjust quantity here */}
         </View>
       </View>
@@ -36,13 +36,18 @@ const ProductItem = ({ item }) => {
       borderColor: '#ccc',
     },
     imageContainer: {
-      width: 30,
-      height: 20,
+      width: 60,
+      height: 60,
       marginRight: 10,
+      paddingVertical:6,
+      paddingHorizontal:5,
+      backgroundColor:'pink',
+      borderRadius:15
     },
     image: {
       width: '100%',
       height: '100%',
+      borderRadius:15
     },
     detailsContainer: {
       flex: 1,
@@ -66,4 +71,5 @@ const ProductItem = ({ item }) => {
       alignItems: 'center',
     },
   });
+  export default ProductItem;
   

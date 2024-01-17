@@ -1,10 +1,11 @@
 import { View, Text, Image, FlatList, StyleSheet } from 'react-native'
 import React from 'react'
+import ProductItem from '../ProductItem/ProductItem';
 
 const CFlatList = (props) => {
     return (
         <FlatList
-          data={props.products}
+          data={props.data}
           renderItem={({ item }) => <ProductItem item={item} />}
           keyExtractor={(item) => item.id}
         />

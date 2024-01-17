@@ -1,11 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList, SectionList, TouchableOpacity } from 'react-native';
 
-// ... your data
-
-
 const CSectionList = (props) => {
-  console.log('->',props.activeId)
   return (
     <View>
       <FlatList
