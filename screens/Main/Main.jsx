@@ -1,9 +1,11 @@
 import * as React from 'react';
-import { StyleSheet, Text, View } from 'react-native'
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native';
 import BottomTabNavigator from '../../components/Tabs/BottomTabNavigator'
 import Home from '../Home/Home';
-
+import { PaperProvider,MD3LightTheme as DefaultTheme } from 'react-native-paper';
+import SaloonByLocations from '../SaloonByLocation.jsx/SaloonByLocations';
+// import {  } from 'react-native-paper';
 // export default function App() {
 //   return (
 //     <NavigationContainer>
@@ -11,14 +13,25 @@ import Home from '../Home/Home';
 //     </NavigationContainer>
 //   );
 // }
+const theme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    primary: 'tomato',
+    secondary: 'yellow',
+  },
+};
 export default function Main() {
     return (
-       <View style={{flex:1}}>
+       <SafeAreaView style={{flex:1}}>
          <NavigationContainer>
-          <Home/>
+          <PaperProvider  theme={theme}>
+            {/* <Home/> */}
+            <SaloonByLocations/>
+          </PaperProvider>
           {/* <BottomTabNavigator /> */}
         </NavigationContainer>
-       </View>
+       </SafeAreaView>
       );
 }
 
