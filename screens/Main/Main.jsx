@@ -5,6 +5,7 @@ import BottomTabNavigator from '../../components/Tabs/BottomTabNavigator'
 import Home from '../Home/Home';
 import { PaperProvider,MD3LightTheme as DefaultTheme } from 'react-native-paper';
 import SaloonByLocations from '../SaloonByLocation.jsx/SaloonByLocations';
+import Mens from '../Mens/Mens';
 // import {  } from 'react-native-paper';
 // export default function App() {
 //   return (
@@ -26,8 +27,9 @@ export default function Main() {
        <SafeAreaView style={{flex:1}}>
          <NavigationContainer>
           <PaperProvider  theme={theme}>
-            {/* <Home/> */}
-            <SaloonByLocations/>
+            <Home/>
+            {/* <Mens/> */}
+            {/* <SaloonByLocations/> */}
           </PaperProvider>
           {/* <BottomTabNavigator /> */}
         </NavigationContainer>
